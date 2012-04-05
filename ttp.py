@@ -46,13 +46,13 @@ HASHTAG_REGEX = re.compile(HASHTAG_EXP, re.IGNORECASE)
 # URLs
 PRE_CHARS = ur'(?:[^/"\':!=]|^|\:)'
 DOMAIN_CHARS = ur'([\.-]|[^\s_\!\.\/])+\.[a-z]{2,}(?::[0-9]+)?'
-PATH_CHARS = ur'(?:[\.,]?[%s!\*\'\(\);:=\+\$/%s#\[\]\-_,~@])' % (UTF_CHARS, '%')
+PATH_CHARS = ur'(?:[\.,]?[%s!\*\'\(;:=\+\$/%s#\[\]\-_,~@])' % (UTF_CHARS, '%')
 QUERY_CHARS = ur'[a-z0-9!\*\'\(\);:&=\+\$/%#\[\]\-_\.,~]'
 
 # Valid end-of-path chracters (so /foo. does not gobble the period).
 # 1. Allow ) for Wikipedia URLs.
 # 2. Allow =&# for empty URL parameters and other URL-join artifacts
-PATH_ENDING_CHARS = r'[%s\)=#/]' % UTF_CHARS
+PATH_ENDING_CHARS = r'[%s=#/]' % UTF_CHARS
 QUERY_ENDING_CHARS = '[a-z0-9_&=#]'
 
 URL_REGEX = re.compile('((%s)((https?://|www\\.)(%s)(\/%s*%s?)?(\?%s*%s)?))'
